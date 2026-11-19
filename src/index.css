@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#121212] text-white selection:bg-[#1DB954] selection:text-black overflow-hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Range input styling for progress and volume */
+input[type="range"] {
+  -webkit-appearance: none;
+  background: transparent;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -4px;
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.group:hover input[type="range"]::-webkit-slider-thumb,
+input[type="range"]:active::-webkit-slider-thumb {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 12px;
+  width: 12px;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.group:hover input[type="range"]::-moz-range-thumb,
+input[type="range"]:active::-moz-range-thumb {
+  opacity: 1;
+}
+
+/* Equalizer animation for playing song */
+@keyframes barRiseAndFall {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+
+.animate-equalizer-1 {
+  animation: barRiseAndFall 0.8s ease-in-out infinite;
+}
+.animate-equalizer-2 {
+  animation: barRiseAndFall 0.8s ease-in-out 0.2s infinite;
+}
+.animate-equalizer-3 {
+  animation: barRiseAndFall 0.8s ease-in-out 0.4s infinite;
+}
+.animate-equalizer-4 {
+  animation: barRiseAndFall 0.8s ease-in-out 0.1s infinite;
+}
+
